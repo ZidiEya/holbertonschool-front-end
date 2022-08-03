@@ -1,5 +1,9 @@
 /*
-Style the anchor elements so the text isn’t decorated with anything
+Create a custom property section-tagline-transform and set it to uppercase
+Targeting the section-tagline class:
+Set the family of fonts to font-family-title
+By using the property section-tagline-transform, transform the text
+Set the weight of fonts to font-weight-bold
 */ 
 html{
     scroll-behavior: smooth;
