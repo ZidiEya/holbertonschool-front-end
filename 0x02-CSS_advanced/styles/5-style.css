@@ -10,14 +10,14 @@ Any fonts in the body should have their sizes set to font-size-medium
 */ 
 html{
     scroll-behavior: smooth;
+    font-size: 62.5%;
     }
 body{
     font-family: var(--font-family-base);
     font-size: var(--font-size-medium);
-
 }
 body,a{
-    color: #161616;
+    color: var(--text-color);
 }
 .visually-hidden{
 display: none;
