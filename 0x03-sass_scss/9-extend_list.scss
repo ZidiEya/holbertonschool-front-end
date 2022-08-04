@@ -7,11 +7,13 @@ $font-size:12px;
 $font-size1:#00FF00;
 $font-size3:#FF0000;
 
-.info, .success, .warning {
+.info {
     font-size: $font-size; }
   
   .success {
+    @extend .info;
     color: $font-size1; }
   
   .warning {
+    @extend .info;
     color: $font-size3; }
