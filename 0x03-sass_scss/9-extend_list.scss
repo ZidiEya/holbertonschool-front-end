@@ -9,11 +9,9 @@ $font-color: #FF0000;
 
 .info {
     font-size: $font-px; }
-  
 .success {
     @extend .info;
     color: $font-color; }
-  
 .warning {
     @extend .info;
     color: $font-color; }
