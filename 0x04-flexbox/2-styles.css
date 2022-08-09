@@ -368,7 +368,8 @@
   }
   /* Section Latest news ============================= */
   .section-latest-news .row{
-    flex-direction: row-reverse;}
+    flex-direction: row-reverse;
+}
 
   /*** 4. CARD ***/
   
@@ -377,7 +378,7 @@
   
   .card-category {
     color: var(--color-primary);
-  }
+}
   
   /* Card WORK
       ============================= */
