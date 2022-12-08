@@ -4,14 +4,14 @@ Text color #00FF00 to all tags of class .success and extend style of the class .
 Text color #FF0000 to all tags of class .warning and extend style of the class .info
 */
 $font-px: 12px;
-$font-color: #00FF00;
-$font-color: #FF0000;
+$font-color1: #00FF00;
+$font-color2: #FF0000;
 
 .info {
     font-size: $font-px; }
 .success {
     @extend .info;
-    color: $font-color; }
+    color: $font-color1; }
 .warning {
     @extend .info;
-    color: $font-color; }
+    color: $font-color2; }
