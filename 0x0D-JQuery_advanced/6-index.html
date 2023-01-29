@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>Task 6. Val, before, and prepend functions</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+  <script type="application/javascript">
+    function createFamilyTree() {
+      $("body").append("<table><thead></thead><tbody></tbody></table>")
+      const celhead = $("<tr></tr>").add($("<th></th>").text(" Firstname ")).add($("<th></th>").text(" Lastname "))
+      $("thead").after(celhead);
+    }
+    function addNewMember(firstName, lastName, position) {
+      const celbody1 = $("<tr></tr>").add($("<td></td>").text(`${firstName}`)).add($("<td></td>").text(`${lastName}`)).add($("<td></td>").text('(x)').css("background-color", "#FFBF00").click(function () { celbody1.remove() }))
+      if (position === "before") {
+        $("tbody").before(celbody1).first();
+      } else {
+        $("tbody").after(celbody1);
+      }
+
+    }
+    function createForm() {
+      $('body').prepend('<div style="display: flex; flex-direction: row;">\n<input type="text" id="name">\n\
+  <input type="text" id="lastname">\n<select id="pos" value="person"><option value="before" name="before">Before</option>\n\
+  <option value="after" name="after">After</option>\n</select>\n<input type="submit" id="subform" value="Submit">\n</div>' );
+    }
+    function submit_btn() {
+      $('#subform').click(function () {
+        let name = $('#name').val();
+        let lastname = $('#lastname').val();
+        let option = $('#pos').val();
+
+        addNewMember(name, lastname, option);
+      });
+    }
+  </script>
+</head>
+<body>
+  <script>
+    createFamilyTree();
+    createForm()
+    submit_btn()
+  </script>
+</body>
+</html>
