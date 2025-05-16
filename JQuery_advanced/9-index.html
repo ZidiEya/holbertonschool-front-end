@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wikipedia Search with Pagination</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    #pagination {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+    #pagination li {
+      display: inline-block;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+    #pagination li.active {
+      font-weight: bold;
+    }
+    .loading {
+      opacity: 0.2;
+    }
+  </style>
+</head>
+<body>
+
+  <script>
+    function createSearchForm() {
+      const form = $('<form></form>');
+      const input = $('<input type="text">');
+      const submit = $('<input type="submit">');
+      const resultsList = $('<ul></ul>');
+      const paginationList = $('<ul id="pagination"></ul>');
+
+      form.append(input, submit);
+      $('body').append(form, resultsList, paginationList);
+
+      form.on('submit', function (e) {
+        e.preventDefault();
+        const searchTerm = input.val().trim();
+        if (searchTerm.length > 0) {
+          queryWikipedia(searchTerm, 0);
+        }
+      });
+    }
+
+    function addNewArticle(id, title, snippet) {
+      const listItem = $('<li></li>');
+      const titleParagraph = $('<p></p>').html(`<span>${id} - </span><b>${title}</b>`);
+      const snippetParagraph = $('<p></p>').html(snippet);
+
+      listItem.append(titleParagraph, snippetParagraph);
+      $('ul').first().append(listItem);
+    }
+
+    function displayLoading(loading) {
+      const ul = $('ul').first();
+      if (loading) {
+        if (!ul.parent().hasClass('loading')) {
+          ul.wrap('<div class="loading"></div>');
+        }
+      } else {
+        if (ul.parent().hasClass('loading')) {
+          ul.unwrap();
+        }
+      }
+    }
+
+    function queryWikipedia(searchTerm, offset = 0) {
+      const itemsPerPage = 10;
+      const apiUrl = 'https://en.wikipedia.org/w/api.php';
+
+      displayLoading(true); // Show loading effect
+
+      $.ajax({
+        url: apiUrl,
+        data: {
+          action: 'query',
+          list: 'search',
+          srsearch: searchTerm,
+          srlimit: itemsPerPage,
+          sroffset: offset,
+          format: 'json',
+          origin: '*'
+        },
+        dataType: 'json',
+        success: function (data) {
+          const results = data.query.search;
+          const totalHits = data.query.searchinfo.totalhits;
+
+          $('ul').first().empty();
+
+          results.forEach(result => {
+            addNewArticle(result.pageid, result.title, result.snippet);
+          });
+
+          buildPagination(totalHits, itemsPerPage, offset, searchTerm);
+          displayLoading(false); // Remove loading effect
+        },
+        error: function () {
+          displayLoading(false); // Remove loading even on failure
+        }
+      });
+    }
+
+    function buildPagination(totalItems, itemsPerPage, currentOffset, searchTerm) {
+      const totalPages = Math.ceil(totalItems / itemsPerPage);
+      const currentPage = Math.floor(currentOffset / itemsPerPage) + 1;
+      const paginationList
