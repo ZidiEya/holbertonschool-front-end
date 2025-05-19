@@ -1,0 +1,404 @@
+/* styles.css */
+
+/* Import fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: #fff;
+  color: #333;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+/* Links reset */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Container for centering blocks */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== Header ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #f7f7f7;
+}
+
+header a.logo img {
+  height: 50px;
+}
+
+header .nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+header .nav-links a {
+  font-weight: 600;
+  color: #222;
+  transition: color 0.3s ease;
+}
+
+header .nav-links a:hover {
+  color: #0077cc;
+}
+
+/* ===== Main and Banner ===== */
+main {
+  padding: 40px 0;
+}
+
+/* Banner section */
+main section.banner {
+  display: flex;
+  gap: 60px;
+  padding: 60px 40px;
+  background-color: #f0f4f8;
+}
+
+.banner .left-block {
+  flex: 1;
+}
+
+.banner .left-block h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.banner .left-block p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.banner .left-block button {
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  padding: 15px 35px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.banner .left-block button:hover {
+  background-color: #005fa3;
+}
+
+/* Right block with 4 items */
+.banner .right-block {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.banner .right-block .item {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+}
+
+.banner .right-block .item img {
+  max-width: 80px;
+  margin-bottom: 15px;
+}
+
+.banner .right-block .item h3 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.banner .right-block .item p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* ===== Quote Section ===== */
+section.quote {
+  background-color: #fff;
+  padding: 60px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quote .quote-container {
+  max-width: 900px;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.quote img {
+  max-width: 150px;
+  border-radius: 8px;
+}
+
+.quote .text-block {
+  flex: 1;
+}
+
+.quote blockquote {
+  font-size: 1.8rem;
+  font-style: italic;
+  margin-bottom: 20px;
+  color: #222;
+  border-left: 4px solid #0077cc;
+  padding-left: 20px;
+}
+
+.quote .author {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.quote .author-description {
+  color: #555;
+  font-size: 1rem;
+}
+
+/* ===== Videos List ===== */
+section.videos {
+  background-color: #f9fafb;
+  padding: 60px 40px;
+}
+
+.videos h1 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.videos .video-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.videos .video-item {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.videos .video-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.videos .video-item h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.videos .video-item p {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+/* Author info */
+.videos .author-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.videos .author-info img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.videos .author-info h3 {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+/* Rating */
+.videos .rating {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.videos .rating .stars {
+  display: flex;
+  gap: 3px;
+}
+
+.videos .rating .stars img {
+  width: 20px;
+  height: 20px;
+}
+
+/* ===== Membership Section ===== */
+section.membership {
+  background-color: #fff;
+  padding: 60px 40px;
+}
+
+.membership h1 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.membership .membership-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.membership .membership-item {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 25px 20px;
+  text-align: center;
+  box-shadow: 0 0 8px rgba(0,0,0,0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.membership .membership-item img {
+  max-width: 80px;
+  margin: 0 auto;
+}
+
+.membership .membership-item h2 {
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.membership .membership-item p {
+  color: #555;
+  flex-grow: 1;
+  font-size: 1rem;
+}
+
+.membership .membership-item button {
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.membership .membership-item button:hover {
+  background-color: #005fa3;
+}
+
+/* ===== FAQ Section ===== */
+section.faq {
+  background-color: #f7f7f7;
+  padding: 60px 40px;
+}
+
+.faq h1 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.faq .faq-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Each "row block" is a grid row with 2 "item blocks" */
+.faq .row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.faq .item {
+  background: white;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+}
+
+.faq .item h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.faq .item p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* ===== Footer ===== */
+footer {
+  background-color: #222;
+  color: #eee;
+  padding: 40px 20px;
+}
+
+footer .footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer .footer-content {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+footer .footer-content img.logo {
+  height: 50px;
+}
+
+footer .footer-content .social-links {
+  display: flex;
+  gap: 25px;
+}
+
+footer .footer-content
